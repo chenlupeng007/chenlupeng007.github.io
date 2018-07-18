@@ -108,21 +108,24 @@
 
 
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Linux">
-<meta property="og:url" content="http://yoursite.com/2018/07/17/Linux/index.html">
+  <meta name="description" content="准备工作熟悉 Vim.  压缩卷右键开始 –&amp;gt; 磁盘管理(K) –&amp;gt; 选择主分区,右键 –&amp;gt; 压缩卷 –&amp;gt; 分出 40G.  制作启动盘下载 Arch Linux 和 Rufus 并制作好启动盘.（选择 UEFI,GPT)  设置从USB启动首先按住音量键并启动,进入 UEFI,关闭安全启动,并将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Archlinux">
+<meta property="og:url" content="http://yoursite.com/2018/07/18/Archlinux/index.html">
 <meta property="og:site_name" content="Seashore">
+<meta property="og:description" content="准备工作熟悉 Vim.  压缩卷右键开始 –&amp;gt; 磁盘管理(K) –&amp;gt; 选择主分区,右键 –&amp;gt; 压缩卷 –&amp;gt; 分出 40G.  制作启动盘下载 Arch Linux 和 Rufus 并制作好启动盘.（选择 UEFI,GPT)  设置从USB启动首先按住音量键并启动,进入 UEFI,关闭安全启动,并将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-17T23:42:56.024Z">
+<meta property="og:updated_time" content="2018-07-18T01:54:10.194Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux">
+<meta name="twitter:title" content="Archlinux">
+<meta name="twitter:description" content="准备工作熟悉 Vim.  压缩卷右键开始 –&amp;gt; 磁盘管理(K) –&amp;gt; 选择主分区,右键 –&amp;gt; 压缩卷 –&amp;gt; 分出 40G.  制作启动盘下载 Arch Linux 和 Rufus 并制作好启动盘.（选择 UEFI,GPT)  设置从USB启动首先按住音量键并启动,进入 UEFI,关闭安全启动,并将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/17/Linux/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/18/Archlinux/"/>
 
 
 
@@ -132,7 +135,7 @@
   };
 </script>
 
-  <title>Linux | Seashore</title>
+  <title>Archlinux | Seashore</title>
   
 
 
@@ -324,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/Linux/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/18/Archlinux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Chen LuPeng">
@@ -341,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux
+          <h1 class="post-title" itemprop="name headline">Archlinux
               
             
           </h1>
@@ -366,9 +369,13 @@
                 
               
 
-              <time title="Created: 2018-07-17 23:42:56" itemprop="dateCreated datePublished" datetime="2018-07-17T23:42:56+00:00">2018-07-17</time>
+              <time title="Created: 2018-07-18 01:04:48 / Modified: 01:54:10" itemprop="dateCreated datePublished" datetime="2018-07-18T01:04:48+00:00">2018-07-18</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -381,10 +388,10 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/07/17/Linux/#comments" itemprop="discussionUrl">
+                <a href="/2018/07/18/Archlinux/#comments" itemprop="discussionUrl">
                 
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/17/Linux/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/07/18/Archlinux/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,7 +419,109 @@
       
 
       
-        
+        <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>熟悉 Vim.</p>
+<ol>
+<li><p>压缩卷<br>右键开始 –&gt; 磁盘管理(K) –&gt; 选择主分区,右键 –&gt; 压缩卷 –&gt; 分出 40G.</p>
+</li>
+<li><p>制作启动盘<br>下载 Arch Linux 和 Rufus 并制作好启动盘.（选择 UEFI,GPT)</p>
+</li>
+<li><p>设置从USB启动<br>首先按住音量键并启动,进入 UEFI,关闭安全启动,并将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB 启动 Arch Linux. 选择第一个选项进入系统.</p>
+</li>
+</ol>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p>安装过程需要使用网络. 用数据线连接手机,打开USB网络共享.</p>
+<ol>
+<li>设置屏幕字体大小<br>由于分辨率太高,导致字体显示太小,重新设置终端字体</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>测试网络连接</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># dhcpcd</span><br><span class="line"># ping -c 3 www.baidu.com // 成功接收到数据包则连接成功</span><br><span class="line"># timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>分区</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># fdisk -l // 以下是一个输出实例</span><br><span class="line">nvme0n1 259:0 0 238.5G</span><br><span class="line">|- nvme0n1p1 259:1 0 260M</span><br><span class="line">|- nvme0n1p2 259:2 0 128M</span><br><span class="line">|- nvme0n1p3 259:3 0 174.8G</span><br><span class="line">|- nvme0n1p4 259:4 0 830M</span><br><span class="line"># gdisk /dev/nvme0n1</span><br><span class="line">（ 1. n(new) 2. 在last sector时 +20G, 其余回车,选择默认设置 3. n 回车选择默认设置,分出第6部分 4. p 看是否分区成功 5. w(write) Y(Yes)</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>格式化</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkfs.ext4 /dev/nvme0n1p5</span><br><span class="line"># mkfs.ext4 /dev/nvme0n1p6</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>挂载</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/nvme0n1p5 /mnt</span><br><span class="line"># mkdir /mnt/home</span><br><span class="line"># mount /dev/nvme0n1p6 /mnt/home</span><br><span class="line"># mkdir -p /mnt/boot/efi // 创建 UEFI 挂载点</span><br><span class="line"># mount /dev/nvme0n1p1 /mnt/boot/efi // 挂载 UEFI 分区</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>安装 base</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/pacman.d/mirrorlist //把163的提到第一个</span><br><span class="line"># pacstrap -i /mnt base base-devel</span><br><span class="line"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br><span class="line"># cat /mnt/etc/fstab</span><br><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>安装 grub</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr os-prober(双系统必装)</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg //(reboot 后还要运行一次,运行结果才会出现windows manager)</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li>重启 reboot</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># passwd // 设置 root 密码</span><br><span class="line"># CTRL-D // exit</span><br><span class="line"># umount /mnt/boot/efi</span><br><span class="line"># umount /mnt</span><br><span class="line"># reboot // 记得移除 USB</span><br></pre></td></tr></table></figure>
+<h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><p>重启后用 root 身份登录, 修改显示字体,打开手机网络共享,测试网络.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz</span><br><span class="line"># dhcpcd</span><br><span class="line"># ping -c 3 www.baidu.com // 成功接收到数据包则连接成功</span><br></pre></td></tr></table></figure>
+<ol>
+<li>时区</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -S /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Locale</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/locale.gen // 移除下面两行前的注释符号</span><br><span class="line">en\_US.UTF-8 UTF-8</span><br><span class="line">zh\_CN.UTF-8 UTF-8</span><br><span class="line"># locale-gen</span><br><span class="line"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>hostname</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># echo Arch &gt; /etc/hostname //将主机名Arch填入</span><br><span class="line"># vi /etc/hosts // 修改 host</span><br><span class="line">完成后看起来像这样:</span><br><span class="line"># cat /etc/hostname</span><br><span class="line">Arch</span><br><span class="line"># cat /etc/hosts</span><br><span class="line">127.0.0.1 localhost.localdomain localhost</span><br><span class="line">::1 localhost.localdomain localhost</span><br><span class="line">127.0.1.1 Arch.localdomain Arch</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>时间<br>时间表示有两个标准：Localtime 和 UTC(Coordinated Universal Time). UTC 是与时区无关的全球时间标准. 尽管概念上有差别, UTC 和 GMT (格林威治时间) 是一样的. Localtime 标准则依赖于当前时区. 由于 windows 使用 Localtime, 为了保持一致:</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># timedatectl set-local-rtc true // 将硬件时间设置为 localtime</span><br><span class="line"># hwclock --systohc // 同步硬件时间和系统时间</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>网络</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># systemctl enable dhcpcd</span><br><span class="line"># pacman -S networkmanager iw wpa_supplicant dialog</span><br><span class="line"># systemctl enable NetworkManager</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>显卡,Touchpad 驱动</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S xf86-video-intel</span><br><span class="line"># pacman -S xf86-input-libinput</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>gnome</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S gnome gnome-tweaks</span><br><span class="line"># systemctl enable gdm</span><br></pre></td></tr></table></figure>
+<p>重启后 gnome 启动, 登录 root 账户, 在 account setting 中 add users 后, log out 重新以 user 的身份登录.</p>
+<h3 id="gnome-启动后安装与设置"><a href="#gnome-启动后安装与设置" class="headerlink" title="gnome 启动后安装与设置"></a>gnome 启动后安装与设置</h3><ul>
+<li><p>Touchpad 左键使用不习惯.<br>setting –&gt; devices –&gt; mouse and touchpad –&gt; tab to click;  </p>
+<p>  tweaks –&gt; mouse &amp; touchpad –&gt; Mouse click emulation (Area).</p>
+</li>
+<li><p>sudo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S sudo vim</span><br><span class="line">$ visudo //（在 root ALL=(ALL)下面仿照格式把root 改成 username）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加archlinuxcn源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/pacman.conf // 添加以下几行</span><br><span class="line">[archlinuxcn]</span><br><span class="line">#The Chinese Arch Linux communities packages.</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">Server = http://repo.archlinuxcn.org/$arch</span><br><span class="line">$ sudo pacman -Syu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>搜狗拼音</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin</span><br><span class="line">$ sudo vim /etc/environment // 写入</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
+<p>然后还需要修改 fcitx-configtool 中的设置: Default Keyboard Layout –&gt; 选择 Chinese, 添加 –&gt; Add input method（+号）选择 Sougou Pinyin.</p>
+</li>
+<li><p>chrome</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S wqy-microhei wqy-zenhei yaourt// 字体</span><br><span class="line">$ sudo yaourt -S google-chrome // 如果root账号下安装 chrome, chrome 无法启动.</span><br><span class="line">$ sudo pacman -R epiphany</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>shadowsocks</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S shadowsocks-qt5</span><br></pre></td></tr></table></figure>
+<p>设置好 shadowsock 后, 还需要 setting –&gt; Network –&gt; Network Proxy –&gt; Manual –&gt; Socks Host 127.0.0.1 1080（设置的local端口号）</p>
+</li>
+<li><p>桌面美化</p>
+<p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">下载</a>extensions, 解压缩后, 放到路径：<a href="https://micheleg.github.io/dash-to-dock/download.html" target="_blank" rel="noopener">~/.local/share/gnome-shell/extensions/</a><br><a href="https://www.gnome-look.org/p/1171688/" target="_blank" rel="noopener">下载</a>Gnome-OSC, 解压缩后, 把里面两个文件, 放到路径：home/.themes/下,<br><a href="https://www.gnome-look.org/p/1102582/" target="_blank" rel="noopener">下载</a>macOS iCons, 解压缩后, 放到路径：home/.icons/下.<br>重新登录后(重启？), 利用 tweaks 进行设置.</p>
+</li>
+<li><p>解决休眠</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/logind.conf</span><br><span class="line">HandleLidSwitch=ignore</span><br><span class="line">$ systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>
+<p>setting power 关闭 atutosuspend dim screen</p>
+</li>
+</ul>
+
       
     </div>
 
@@ -490,8 +599,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -536,6 +654,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程"><span class="nav-number">2.</span> <span class="nav-text">安装过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本设置"><span class="nav-number">3.</span> <span class="nav-text">基本设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gnome-启动后安装与设置"><span class="nav-number">4.</span> <span class="nav-text">gnome 启动后安装与设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -684,9 +818,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/07/17/Linux/';
-        this.page.identifier = '2018/07/17/Linux/';
-        this.page.title = 'Linux';
+        this.page.url = 'http://yoursite.com/2018/07/18/Archlinux/';
+        this.page.identifier = '2018/07/18/Archlinux/';
+        this.page.title = 'Archlinux';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
