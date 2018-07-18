@@ -370,7 +370,7 @@
                 
               
 
-              <time title="Created: 2018-07-18 01:04:48 / Modified: 01:54:10" itemprop="dateCreated datePublished" datetime="2018-07-18T01:04:48+00:00">2018-07-18</time>
+              <time title="Created: 2018-07-18 01:04:48 / Modified: 02:00:33" itemprop="dateCreated datePublished" datetime="2018-07-18T01:04:48+00:00">2018-07-18</time>
             
 
             
@@ -495,14 +495,14 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S gnome gnome-tweaks</span><br><span class="line"># systemctl enable gdm</span><br></pre></td></tr></table></figure>
 <p>重启后 gnome 启动, 登录 root 账户, 在 account setting 中 add users 后, log out 重新以 user 的身份登录.</p>
-<h3 id="gnome-启动后安装与设置"><a href="#gnome-启动后安装与设置" class="headerlink" title="gnome 启动后安装与设置"></a>gnome 启动后安装与设置</h3><ul>
+<h3 id="gnome-设置"><a href="#gnome-设置" class="headerlink" title="gnome 设置"></a>gnome 设置</h3><ul>
 <li><p>Touchpad 左键使用不习惯.<br>setting –&gt; devices –&gt; mouse and touchpad –&gt; tab to click;  </p>
 <p>  tweaks –&gt; mouse &amp; touchpad –&gt; Mouse click emulation (Area).</p>
 </li>
 <li><p>sudo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S sudo vim</span><br><span class="line">$ visudo //（在 root ALL=(ALL)下面仿照格式把root 改成 username）</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加archlinuxcn源</p>
+<li><p>添加 archlinuxcn 源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/pacman.conf // 添加以下几行</span><br><span class="line">[archlinuxcn]</span><br><span class="line">#The Chinese Arch Linux communities packages.</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">Server = http://repo.archlinuxcn.org/$arch</span><br><span class="line">$ sudo pacman -Syu</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>搜狗拼音</p>
@@ -519,7 +519,7 @@
 <li><p>桌面美化</p>
 <p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">下载</a>extensions, 解压缩后, 放到路径：<a href="https://micheleg.github.io/dash-to-dock/download.html" target="_blank" rel="noopener">~/.local/share/gnome-shell/extensions/</a><br><a href="https://www.gnome-look.org/p/1171688/" target="_blank" rel="noopener">下载</a>Gnome-OSC, 解压缩后, 把里面两个文件, 放到路径：home/.themes/下,<br><a href="https://www.gnome-look.org/p/1102582/" target="_blank" rel="noopener">下载</a>macOS iCons, 解压缩后, 放到路径：home/.icons/下.<br>重新登录后(重启？), 利用 tweaks 进行设置.</p>
 </li>
-<li><p>解决休眠</p>
+<li><p>解决休眠问题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/logind.conf</span><br><span class="line">HandleLidSwitch=ignore</span><br><span class="line">$ systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>
 <p>setting power 关闭 atutosuspend dim screen</p>
 </li>
