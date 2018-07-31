@@ -115,21 +115,21 @@
 
 
 
-  <meta name="description" content="This is the learning noets about Dom when I learned from the web site javascript.info">
+  <meta name="description" content="This is a learning noet about Dom when I learned from the web site javascript.info.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Document Object">
 <meta property="og:url" content="http://yoursite.com/2018/07/31/Dom-md/index.html">
 <meta property="og:site_name" content="Seashore">
-<meta property="og:description" content="This is the learning noets about Dom when I learned from the web site javascript.info">
+<meta property="og:description" content="This is a learning noet about Dom when I learned from the web site javascript.info.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy@2x.png">
 <meta property="og:image" content="http://javascript.info/article/modifying-document/before-prepend-append-after@2x.png">
 <meta property="og:image" content="http://javascript.info/article/modifying-document/insert-adjacent@2x.png">
 <meta property="og:image" content="http://javascript.info/article/size-and-scroll/metric-all@2x.png">
-<meta property="og:updated_time" content="2018-07-31T14:26:19.431Z">
+<meta property="og:updated_time" content="2018-07-31T16:04:12.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Document Object">
-<meta name="twitter:description" content="This is the learning noets about Dom when I learned from the web site javascript.info">
+<meta name="twitter:description" content="This is a learning noet about Dom when I learned from the web site javascript.info.">
 <meta name="twitter:image" content="http://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy@2x.png">
 
 
@@ -373,7 +373,7 @@
                 
               
 
-              <time title="Created: 2018-07-31 13:32:49 / Modified: 14:26:19" itemprop="dateCreated datePublished" datetime="2018-07-31T13:32:49+00:00">2018-07-31</time>
+              <time title="Created: 2018-07-31 13:32:49 / Modified: 16:04:12" itemprop="dateCreated datePublished" datetime="2018-07-31T13:32:49+00:00">2018-07-31</time>
             
 
             
@@ -441,8 +441,7 @@
       
 
       
-        <p>This is the learning noets about Dom when I learned from the web site <a href="http://javascript.info/" target="_blank" rel="noopener">javascript.info</a></p>
-<hr>
+        <p>This is a learning noet about Dom when I learned from the web site <a href="http://javascript.info/" target="_blank" rel="noopener">javascript.info</a>.</p>
 <a id="more"></a>
 <h2 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h2><p>Here’s a bird’s-eye view of what we have when JavaScript runs in a web-browser:</p>
 <ul>
@@ -523,7 +522,7 @@
 <li>There is <code>elem.closest(css)</code> to look for the nearest ancestor that matches the given CSS-selector. The <code>elem</code> itself is also checked.</li>
 </ul>
 <h3 id="Node-Properties"><a href="#Node-Properties" class="headerlink" title="Node Properties"></a>Node Properties</h3><p>Each DOM node belongs to a certain class. The classes form a hierarchy. The full set of properties and methods come as the result of inheritance.</p>
-<center><br><img src="http://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy@2x.png" width="45%" height="45%"><br></center>
+<center><br><img src="http://javascript.info/article/basic-dom-node-properties/dom-class-hierarchy@2x.png" width="65%" height="65%"><br></center>
 
 <p>The innerHTML property allows to get the HTML inside the element as a string, we can also modify it. We can append “more HTML” by using <code>elem.innerHTML+=&quot;something&quot;</code>. <code>innerHTML+=</code> does this:</p>
 <ul>
@@ -616,10 +615,8 @@
 <p>Some browsers (e.g. Chrome) return the real inner width, minus the scrollbar, and some of them (e.g. Firefox) – CSS width (ignore the scrollbar). Such cross-browser differences is the reason not to use getComputedStyle, but rather rely on geometry properties.</p>
 <h3 id="Window-sizes-and-scrolling"><a href="#Window-sizes-and-scrolling" class="headerlink" title="Window sizes and scrolling"></a>Window sizes and scrolling</h3><p>Geometry:</p>
 <ul>
-<li><p>Width/height of the visible part of the document (content area width/height): <code>document.documentElement.clientWidth/Height</code></p>
-</li>
-<li><p>Width/height of the whole document, with the scrolled out part:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scrollHeight = <span class="built_in">Math</span>.max(</span><br><span class="line">  <span class="built_in">document</span>.body.scrollHeight, <span class="built_in">document</span>.documentElement.scrollHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.offsetHeight, <span class="built_in">document</span>.documentElement.offsetHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<li>Width/height of the visible part of the document (content area width/height): <code>document.documentElement.clientWidth/Height</code>.</li>
+<li>Width/height of the whole document, with the scrolled out part:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scrollHeight = <span class="built_in">Math</span>.max(</span><br><span class="line">  <span class="built_in">document</span>.body.scrollHeight, <span class="built_in">document</span>.documentElement.scrollHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.offsetHeight, <span class="built_in">document</span>.documentElement.offsetHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>Scrolling:</p>
