@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://javascript.info/article/modifying-document/before-prepend-append-after@2x.png">
 <meta property="og:image" content="http://javascript.info/article/modifying-document/insert-adjacent@2x.png">
 <meta property="og:image" content="http://javascript.info/article/size-and-scroll/metric-all@2x.png">
-<meta property="og:updated_time" content="2018-07-31T16:04:12.058Z">
+<meta property="og:updated_time" content="2018-07-31T16:26:52.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Document Object">
 <meta name="twitter:description" content="This is a learning noet about Dom when I learned from the web site javascript.info.">
@@ -373,7 +373,7 @@
                 
               
 
-              <time title="Created: 2018-07-31 13:32:49 / Modified: 16:04:12" itemprop="dateCreated datePublished" datetime="2018-07-31T13:32:49+00:00">2018-07-31</time>
+              <time title="Created: 2018-07-31 13:32:49 / Modified: 16:26:52" itemprop="dateCreated datePublished" datetime="2018-07-31T13:32:49+00:00">2018-07-31</time>
             
 
             
@@ -461,7 +461,7 @@
 <ul>
 <li><p>For <strong>all nodes</strong>: <code>parentNode</code>, <code>childNodes</code>, <code>firstChild</code>, <code>lastChild</code>, <code>previousSibling</code>, <code>nextSibling</code>.</p>
 </li>
-<li><p>For <strong>element nodes only</strong>: <code>parentElement</code>, <code>children</code>, <code>firstElementChild</code>, <code>lastElementChild</code>, <code>previousElementSibling</code>, <code>nextElementSibling</code>.</p>
+<li><p>For <strong>element nodes only</strong>: <code>parentElement</code>, <code>children</code>, <code>firstElementChild</code>, <code>lastElementChild</code>,<br><code>previousElementSibling</code>, <code>nextElementSibling</code>.</p>
 </li>
 </ul>
 <p><code>childNodes(children)</code> looks like an array. But actually it’s not an array, but rather a collection – a special array-like iterable object. There are two important consequences:</p>
@@ -615,7 +615,7 @@
 <p>Some browsers (e.g. Chrome) return the real inner width, minus the scrollbar, and some of them (e.g. Firefox) – CSS width (ignore the scrollbar). Such cross-browser differences is the reason not to use getComputedStyle, but rather rely on geometry properties.</p>
 <h3 id="Window-sizes-and-scrolling"><a href="#Window-sizes-and-scrolling" class="headerlink" title="Window sizes and scrolling"></a>Window sizes and scrolling</h3><p>Geometry:</p>
 <ul>
-<li>Width/height of the visible part of the document (content area width/height): <code>document.documentElement.clientWidth/Height</code>.</li>
+<li>Width/height of the visible part of the document (content area width/height):<br><code>document.documentElement.clientWidth/Height</code>.</li>
 <li>Width/height of the whole document, with the scrolled out part:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> scrollHeight = <span class="built_in">Math</span>.max(</span><br><span class="line">  <span class="built_in">document</span>.body.scrollHeight, <span class="built_in">document</span>.documentElement.scrollHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.offsetHeight, <span class="built_in">document</span>.documentElement.offsetHeight,</span><br><span class="line">  <span class="built_in">document</span>.body.clientHeight, <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -635,7 +635,7 @@
 <h3 id="Coordinates"><a href="#Coordinates" class="headerlink" title="Coordinates"></a>Coordinates</h3><p>Any point on the page has coordinates:</p>
 <ul>
 <li>Relative to the window – <code>elem.getBoundingClientRect()</code>.</li>
-<li>Relative to the document – <code>elem.getBoundingClientRect()</code> plus the current page scroll <code>window.pageXOffset/pageYOffset</code>.</li>
+<li>Relative to the document – <code>elem.getBoundingClientRect()</code> plus the current page scroll<br><code>window.pageXOffset/pageYOffset</code>.</li>
 </ul>
 <p>Window coordinates are great to use with <code>position:fixed</code>, and document coordinates do well with <code>position:absolute</code>.</p>
 <p>Both coordinate systems have their “pro” and “contra”, there are times we need one or the other one, just like CSS position absolute and fixed.</p>
