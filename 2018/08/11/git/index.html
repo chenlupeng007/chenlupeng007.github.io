@@ -127,7 +127,8 @@
 <meta property="og:image" content="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_6.png">
 <meta property="og:image" content="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_7.png">
 <meta property="og:image" content="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_9.png">
-<meta property="og:updated_time" content="2018-08-12T00:37:08.797Z">
+<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384926554932eb5e65df912341c1a48045bc274ba4bf000/0">
+<meta property="og:updated_time" content="2018-08-28T16:19:34.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="Learning note of Git.">
@@ -391,7 +392,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-12 00:37:08" itemprop="dateModified" datetime="2018-08-12T00:37:08+00:00">2018-08-12</time>
+                <time title="Modified: 2018-08-28 16:19:34" itemprop="dateModified" datetime="2018-08-28T16:19:34+00:00">2018-08-28</time>
               
             
           </span>
@@ -501,13 +502,13 @@
 <p>如果 master 上没有提交, 这种合并方式叫做 Fast-forward(加上 <code>--no-ff</code> 参数就可以强制用 non fast-forward 方式合并).</p>
 <p>如果主分支和分支上都有新的提交, 并且两种提交有冲突, 合并后自动生成一个提交, 需要手动解决冲突, 再提交, 提交后会重新创建合并修改的提交记录, 这种合并方式叫做 non fast-forward. 合并后的历史有分支, 能看出来曾经做过合并, 而 fast forward 合并就看不出来曾经做过合并.</p>
 <p>在分支上作完修改并提交后, 要合并到 <code>master</code> 主分支, 需要先切换到 <code>master</code> 分支.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge &lt;branch&gt; // 合并分支到当前分支</span><br><span class="line">// 有冲突需要手动解决冲突</span><br><span class="line">// git merge --no-ff -m &lt;message&gt; &lt;branch&gt; 强制使用 non fast-forward</span><br><span class="line">// non fast-forward 合并自动生成一个提交, -m 可以添加提交信息</span><br><span class="line">$ git branch -d &lt;branch&gt; // 删除分支</span><br><span class="line">$ git log --graph --pretty=oneline --abbrev-commit</span><br><span class="line">// 可以查看分支的合并情况</span><br></pre></td></tr></table></figure></p>
-<p>对于 rebase 如下图所示, bugfix 分支是从 master 分支分叉出来的.</p>
+<p><strong>reabase</strong><br>如下图所示, bugfix 分支是从 master 分支分叉出来的.</p>
 <center><br><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_6.png" width="50%"><br></center>
 
-<p>如果使用 rebase 方法进行分支合并, 会出现下图所显示的历史记录.</p>
+<p>之后 master 上增加了修改: C 和 D, 而我们的分支想要建立在 C 和 D 的基础上, 也就是说本来我们是基于提交 B 的, 现在想要基于 C 和 D, 这种情况叫做 rebase. 使用 rebase 方法进行分支合并, 会出现下图所显示的历史记录.</p>
 <center><br><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_7.png" width="70%"><br></center>
 
-<p>首先, rebase bugfix 分支到 master 分支, bugfix 分支的历史记录会添加在 master 分支的后面. 如图所示, 历史记录成一条线, 相当整洁. 这时移动提交 X 和 Y 有可能会发生冲突, 所以需要修改各自的提交时发生冲突的部分. rebase 之后, master 的 HEAD 位置不变. 因此, 要合并 master 分支和 bugfix 分支, 即是将 master 的 HEAD 移动到 bugfix 的 HEAD 这里.</p>
+<p>首先, rebase bugfix 分支到 master 分支, bugfix 分支的历史记录会添加在 master 分支的后面, 但是此时 X’ 和 Y’ 是从 X 和 Y 复制过来的, 不再是 X 和 Y 了. 如图所示, 历史记录成一条线. 此时如果继续提交 X’ 和 Y’ 有可能会发生冲突, 所以仍然需要解决冲突. rebase 之后, master 的 HEAD 位置不变. 因此, 要合并 master 分支和 bugfix 分支, 即是将 master 的 HEAD 移动到 bugfix 的 HEAD 这里.</p>
 <center><br><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_4_9.png" width="70%"><br></center>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout bugfix</span><br><span class="line">$ git rebase master // 将当前分支 rebase 到 master 分支</span><br><span class="line">$ git rebase --continue</span><br><span class="line">// rebase 的时候, 修改冲突后的提交不是使用 commit 命令,</span><br><span class="line">// 而是执行 rebase 命令指定 --continue 选项.</span><br><span class="line">$ git checkout master</span><br><span class="line">$ git merge bugfix</span><br></pre></td></tr></table></figure>
@@ -567,7 +568,23 @@
 </tr>
 </tbody>
 </table>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><p>首先注册一个 Github 账号.</p>
+<ol>
+<li><p>配置 SSH<br>这样 push 时就不同每次都要输入密码. 为什么 GitHub 需要 SSH Key 呢? 因为 GitHub 需要识别出你推送的提交确实是你推送的, 而不是别人冒充的, 而 Git 支持 SSH 协议, 所以 GitHub 只要知道了你的公钥, 就可以确认只有你自己才能推送.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</span><br><span class="line">// 生成私钥和公钥, 可以在用户主目录里找到 .ssh 目录, 里面有 id_rsa 和 id_rsa.pub 两个文件</span><br><span class="line">// id_rsa是私钥, 不能泄露出去, id_rsa.pub是公钥.</span><br><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br><span class="line">// 将输出复制到 GitHub 的 Account settings 的 SSH Keys 里.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同步本地 Git 仓库与远程 GitHub 仓库.<br>假设本地有一个仓库, 可以在 Github 上也创建了一个同名仓库, 然后将两者关联起来:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:&lt;AccountName&gt;/learngit.git // 关联</span><br><span class="line">$ git push -u origin master // 推送</span><br></pre></td></tr></table></figure>
+<p><code>git push</code> 命令实际上是把当前分支 <code>master</code> 推送到远程. 由于远程库是空的, 我们第一次推送 <code>master</code> 分支时, 加上了 <code>-u</code> 参数, Git 不但会把本地的 <code>master</code> 分支内容推送的远程新的 <code>master</code> 分支, 还会把本地的 <code>master</code> 分支和远程的 <code>master</code> 分支关联起来, 在以后的推送或者拉取时就可以简化命令, 以后只需要使用 <code>git push origin master</code>.</p>
+<p>当你第一次使用 Git 的 <code>clone</code> 或者 <code>push</code> 命令连接 GitHub 时, 会得到一个 SSH 警告, 输入 yes 回车即可, 这个警告只会出现一次, 后面的操作就不会有任何警告了.</p>
+</li>
+<li><p>Github 的基本使用<br>如何参与一个开源项目呢(比如人气极高的 Bootstrap 项目)? 点 Fork 就在自己的账号下克隆了一个 Bootstrap 仓库, 然后从自己的账号下clone: <code>git clone git@github.com:&lt;AccountName&gt;/bootstrap.git</code>.<br>Bootstrap 的官方仓库 twbs/bootstrap、你在 GitHub 上克隆的仓库 my/bootstrap, 以及你自己克隆到本地电脑的仓库, 他们的关系就像下图显示的那样：</p>
+</li>
+</ol>
+<center><br>  <img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384926554932eb5e65df912341c1a48045bc274ba4bf000/0" width="70%"><br></center>
+
+<p>然后在本地修改一个 Bug, 推送到 Github 仓库, 如果你希望 Bootstrap 的官方库能接受你的修改, 你就可以在 GitHub 上发起一个 pull request.</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git 教程</a></li>
 <li><a href="https://backlog.com/git-tutorial/cn/intro/intro1_1.html" target="_blank" rel="noopener">猴子都能懂的 Git 入门</a></li>
 </ul>
@@ -759,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">2.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">3.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">4.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">1.</span> <span class="nav-text">入门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作区和暂存区"><span class="nav-number">2.</span> <span class="nav-text">工作区和暂存区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支管理"><span class="nav-number">3.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">4.</span> <span class="nav-text">标签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">5.</span> <span class="nav-text">Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
