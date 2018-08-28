@@ -115,21 +115,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="Introducton to Browser Events.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Browser Events">
+<meta property="og:url" content="http://yoursite.com/2018/08/28/Events/index.html">
 <meta property="og:site_name" content="Seashore">
+<meta property="og:description" content="Introducton to Browser Events.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-18T10:41:46.391Z">
+<meta property="og:updated_time" content="2018-08-28T20:03:17.880Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
+<meta name="twitter:title" content="Browser Events">
+<meta name="twitter:description" content="Introducton to Browser Events.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/28/Events/"/>
 
 
 
@@ -139,7 +142,7 @@
   };
 </script>
 
-  <title>Tags | Seashore</title>
+  <title>Browser Events | Seashore</title>
   
 
 
@@ -260,22 +263,6 @@
   
     
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
   
 
   
@@ -325,52 +312,262 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/Events/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chen LuPeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Seashore">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">Tags</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                
-                
-                No tags
-            </div>
-            <div class="tag-cloud-tags">
+          <h1 class="post-title" itemprop="name headline">Browser Events
               
-            </div>
-          </div>
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-08-28 20:00:29 / Modified: 20:03:17" itemprop="dateCreated datePublished" datetime="2018-08-28T20:00:29+00:00">2018-08-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/28/Events/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/28/Events/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Introducton to Browser Events.</p>
+<a id="more"></a>
+<h3 id="Assign-event-handlers"><a href="#Assign-event-handlers" class="headerlink" title="Assign event handlers"></a>Assign event handlers</h3><p>There are 3 ways to assign event handlers:</p>
+<ul>
+<li><p>HTML attribute: <code>onclick=&quot;...&quot;</code>.</p>
+<p>A handler can be set in HTML with an attribute named <code>on&lt;event&gt;</code>. As we know, HTML attribute names are not case-sensitive, so <code>onclick</code> is <strong>not case-sensitive</strong>.</p>
+</li>
+<li><p>DOM property: <code>elem.onclick = function</code>.</p>
+<p>We can assign a handler using a DOM property <code>on&lt;event&gt;</code>. As there’s only one onclick property, <strong>we can’t assign more than one event handler</strong>. To remove a handler – assign <code>elem.onclick = null</code>.</p>
+</li>
+<li><p>Methods: <code>elem.addEventListener(event, handler[, phase])</code> to add, <code>removeEventListener</code> to remove.</p>
+<p>Multiple calls to <code>addEventListener</code> allow to add multiple handlers. There are few events that only work with it, for instance <code>transtionend</code> and <code>DOMContentLoaded</code> (to be covered). Also <code>addEventListener</code> supports objects and classes as event handlers. In that case the method <code>handleEvent</code> is called in case of the event.</p>
+</li>
+</ul>
+<p>When an event happens, the browser creates an <em>event object</em>, puts details into it and passes it as the first argument to the handler. Some properties of event object:</p>
+<ul>
+<li><p><code>event.type</code></p>
+<p>Event type, such as “click”.</p>
+</li>
+<li><code>event.currentTarget</code><br>Element that handled the event. That’s exactly the same as <code>this</code>.</li>
+<li><code>event.clientX / event.clientY</code><br>Window-relative coordinates of the cursor, for mouse events.</li>
+</ul>
+<p>The value of <code>this</code> inside a handler is the element. The one which has the handler on it.</p>
+<h3 id="Bubbling-and-capturing"><a href="#Bubbling-and-capturing" class="headerlink" title="Bubbling and capturing"></a>Bubbling and capturing</h3><p>The event handling process:</p>
+<ol>
+<li>When an event happens – the most nested element where it happens gets labeled as the “target element” (<code>event.target</code>).</li>
+<li>Capturing phase - Then the event first moves from the document root down the <code>event.target</code>, calling handlers assigned with <code>addEventListener(...., true)</code> on the way.</li>
+<li>Target phase – the event reached the target element.</li>
+<li><p>Bubbling phase - Then the event moves from <code>event.target</code> up to the root, calling handlers assigned using <code>on&lt;event&gt;</code> and <code>addEventListener</code> without the 3rd argument or with the 3rd argument <code>false</code>.</p>
+<p><code>event.target</code> – the deepest element that originated the event. <code>event.currentTarget (=this)</code> – the current element that handles the event (the one that has the handler on it).</p>
+</li>
+</ol>
+<p>Any event handler can stop the event by calling <code>event.stopPropagation()</code>.</p>
+<p><strong>Almost</strong> all events bubble. The key word in this phrase is “almost”. For instance, a <code>focus</code> event does not bubble.</p>
+<h3 id="Event-delegation"><a href="#Event-delegation" class="headerlink" title="Event delegation"></a>Event delegation</h3><p>Event delegation is often used to add same handling for many similar elements, but not only for that.<br>The algorithm:</p>
+<ol>
+<li>Put a single handler on the container.</li>
+<li>In the handler – check the source element event.target.</li>
+<li>If the event happened inside an element that interests us, then handle the event.</li>
+</ol>
+<p>Benefits:</p>
+<ul>
+<li>Simplifies initialization and saves memory: no need to add many handlers.</li>
+<li>Less code: when adding or removing elements, no need to add/remove handlers.</li>
+<li>DOM modifications: we can mass add/remove elements with innerHTML and alike.</li>
+</ul>
+<p>Limitations:</p>
+<ul>
+<li>the event must be bubbling. Some events do not bubble. Also, low-level handlers should not use <code>event.stopPropagation()</code>.</li>
+<li>the delegation may add CPU load, because the container-level handler reacts on events in any place of the container, no matter if they interest us or not. But usually the load is negligible, so we don’t take it into account.</li>
+</ul>
+<h3 id="Browser-default-actions"><a href="#Browser-default-actions" class="headerlink" title="Browser default actions"></a>Browser default actions</h3><p>There are many default browser actions:</p>
+<ul>
+<li>A click on a link – initiates going to its URL.</li>
+<li>A click on submit button inside a form – initiates its submission to the server.</li>
+</ul>
+<p>To prevent a default action – use either <code>event.preventDefault()</code> or return false. The second method works only for handlers assigned with <code>on&lt;event&gt;</code>.</p>
+<h3 id="Dispatching-custom-events"><a href="#Dispatching-custom-events" class="headerlink" title="Dispatching custom events"></a>Dispatching custom events</h3><p>Create a general Event:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> event = <span class="keyword">new</span> Event(event type[, options]);</span><br></pre></td></tr></table></figure></p>
+<p>Arguments:</p>
+<ul>
+<li>event type - may be any string, like “click” or our own like “hey-ho!”.</li>
+<li><p>options – the object with two optional properties:</p>
+<ul>
+<li><code>bubbles: true/false</code> – if <code>true</code>, then the event bubbles.</li>
+<li><code>cancelable: true/false</code> – if <code>true</code>, then the “default action” may be prevented.</li>
+</ul>
+<p>By default both are false: <code>{bubbles: false, cancelable: false}</code>.</p>
+</li>
+</ul>
+<p>After an event object is created, we should dispatch it on an element using the call <code>elem.dispatchEvent(event)</code>.</p>
+<p>We should use <code>addEventListener</code> for our custom events, because on<event> only exists for built-in events.</event></p>
+<p>For some UI Events, such as <code>FocusEvent</code>,<br><code>MouseEvent</code>, we should use something like <code>new MouseEvent(&quot;click&quot;)</code> instead of <code>new Event</code>, since they provide specify standard properties for that type of event, like <code>clientX/clientY</code> for a mouse event.</p>
+<p>For our own, custom events like “hello” we should use <code>new CustomEvent</code>. It provides a second argument <code>detail</code>, which is an object designed for any custom information that we want to pass with the event.</p>
+<p>We can call <code>event.preventDefault()</code> on a script-generated event if <code>cancelable:true</code> flag is specified. In that case the call to <code>elem.dispatchEvent(event)</code> returns false.</p>
+<h3 id="words-and-phrases"><a href="#words-and-phrases" class="headerlink" title="words and phrases"></a>words and phrases</h3><ul>
+<li>sparingly = rarely</li>
+</ul>
+
       
     </div>
+
     
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/11/git/" rel="next" title="Git">
+                <i class="fa fa-chevron-left"></i> Git
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
 
 
 
-    
-    
-    
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -410,8 +607,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -485,6 +691,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-event-handlers"><span class="nav-number">1.</span> <span class="nav-text">Assign event handlers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbling-and-capturing"><span class="nav-number">2.</span> <span class="nav-text">Bubbling and capturing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-delegation"><span class="nav-number">3.</span> <span class="nav-text">Event delegation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser-default-actions"><span class="nav-number">4.</span> <span class="nav-text">Browser default actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatching-custom-events"><span class="nav-number">5.</span> <span class="nav-text">Dispatching custom events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#words-and-phrases"><span class="nav-number">6.</span> <span class="nav-text">words and phrases</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -634,9 +856,9 @@
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/tags/index.html';
-        this.page.identifier = 'tags/index.html';
-        this.page.title = 'Tags';
+        this.page.url = 'http://yoursite.com/2018/08/28/Events/';
+        this.page.identifier = '2018/08/28/Events/';
+        this.page.title = 'Browser Events';
         };
       function loadComments () {
         var d = document, s = d.createElement('script');
