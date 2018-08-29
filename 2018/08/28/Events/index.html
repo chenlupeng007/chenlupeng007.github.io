@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Introducton to Browser Events.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T20:17:17.876Z">
+<meta property="og:updated_time" content="2018-08-29T20:25:41.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Browser Events">
 <meta name="twitter:description" content="Introducton to Browser Events.">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-29 20:17:17" itemprop="dateModified" datetime="2018-08-29T20:17:17+00:00">2018-08-29</time>
+                <time title="Modified: 2018-08-29 20:25:41" itemprop="dateModified" datetime="2018-08-29T20:25:41+00:00">2018-08-29</time>
               
             
           </span>
@@ -527,7 +527,7 @@
 <li>simple: mousedown/mouseup, mouseover/mouseout, mousemove.</li>
 <li>complex: click, contextmenu(click right mouse button), dblclick(double click).</li>
 </ul>
-<p>An action may trigger multiple events. For instance, a click first triggers <code>mousedown</code>, when the button is pressed, then <code>mouseup</code> and <code>click</code> when it’s released. The handlers are called in the order <code>mousedown → mouseup → click</code>.<br>Both <code>click</code> and <code>contextmenu</code> trigger <code>mousedonw</code> and <code>mouseup</code>. <code>which</code> allows to distinguish between “right-mousedown” and “left-mousedown”: <code>event.which == 1</code> – the left button, <code>event.which == 2</code> – the middle button,<br><code>event.which == 3</code> – the right button.</p>
+<p>An action may trigger multiple events. For instance, a click first triggers <code>mousedown</code>, when the button is pressed, then <code>mouseup</code> and <code>click</code> when it’s released. The handlers are called in the order  <code>mousedown → mouseup</code> <br> → <code>click</code>. Both <code>click</code> and <code>contextmenu</code> trigger <code>mousedonw</code> and <code>mouseup</code>. <code>which</code> allows to distinguish between “right-mousedown” and “left-mousedown”: <code>event.which == 1</code> – the left button, <code>event.which == 2</code> – the middle button, <code>event.which == 3</code> – the right button.</p>
 <p>All mouse events include the information about pressed <em>modifier keys</em>: <code>shiftKey</code>, <code>altKey</code>, <code>ctrlKey</code>, <code>metaKey</code> (Cmd for Mac).</p>
 <p>All mouse events have coordinates in two flavours:</p>
 <ul>
@@ -550,8 +550,9 @@
 <p>Main keyboard event properties:</p>
 <ul>
 <li><code>event.code</code> – the “key code”, specific to the <strong>physical location</strong> of the key on keyboard.</li>
-<li><code>event.key</code> – the character (“A”, “a” and so on), it’s a specific value.<br>+<br>Let’s say, we want to handle a hotkey: <code>Ctrl+Z</code> (or <code>Cmd+Z</code> for Mac). We can set a listener on keydown and check which key is pressed – to detect when we have the hotkey. Please answer the question – in such a listener, should we check the value of event.key or event.code? (The answer is <code>event.code</code>.)</li>
+<li><code>event.key</code> – the character (“A”, “a” and so on), it’s a specific value.</li>
 </ul>
+<p>Let’s say, we want to handle a hotkey: <code>Ctrl+Z</code> (or <code>Cmd+Z</code> for Mac). We can set a listener on keydown and check which key is pressed – to detect when we have the hotkey. Please answer the question – in such a listener, should we check the value of event.key or event.code? (The answer is <code>event.code</code>.)</p>
 <h3 id="Page-lifecycle-events"><a href="#Page-lifecycle-events" class="headerlink" title="Page lifecycle events"></a>Page lifecycle events</h3><p><a href="https://github.com/fi3ework/blog/issues/3" target="_blank" rel="noopener">Page lifecycle events</a>:</p>
 <ul>
 <li><code>DOMContentLoaded</code> event triggers on <code>document</code> when DOM is ready. Images and other resources may still continue loading.</li>
