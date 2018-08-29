@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Introducton to Browser Events.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-28T20:03:17.880Z">
+<meta property="og:updated_time" content="2018-08-29T20:01:37.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Browser Events">
 <meta name="twitter:description" content="Introducton to Browser Events.">
@@ -368,12 +368,24 @@
                 
               
 
-              <time title="Created: 2018-08-28 20:00:29 / Modified: 20:03:17" itemprop="dateCreated datePublished" datetime="2018-08-28T20:00:29+00:00">2018-08-28</time>
+              <time title="Created: 2018-08-28 20:00:29" itemprop="dateCreated datePublished" datetime="2018-08-28T20:00:29+00:00">2018-08-28</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-08-29 20:01:37" itemprop="dateModified" datetime="2018-08-29T20:01:37+00:00">2018-08-29</time>
               
             
           </span>
@@ -510,8 +522,60 @@
 <p>For some UI Events, such as <code>FocusEvent</code>,<br><code>MouseEvent</code>, we should use something like <code>new MouseEvent(&quot;click&quot;)</code> instead of <code>new Event</code>, since they provide specify standard properties for that type of event, like <code>clientX/clientY</code> for a mouse event.</p>
 <p>For our own, custom events like “hello” we should use <code>new CustomEvent</code>. It provides a second argument <code>detail</code>, which is an object designed for any custom information that we want to pass with the event.</p>
 <p>We can call <code>event.preventDefault()</code> on a script-generated event if <code>cancelable:true</code> flag is specified. In that case the call to <code>elem.dispatchEvent(event)</code> returns false.</p>
-<h3 id="words-and-phrases"><a href="#words-and-phrases" class="headerlink" title="words and phrases"></a>words and phrases</h3><ul>
+<h3 id="Mouse-events"><a href="#Mouse-events" class="headerlink" title="Mouse events"></a>Mouse events</h3><p>Mouse event types:</p>
+<ul>
+<li>simple: mousedown/mouseup, mouseover/mouseout, mousemove.</li>
+<li>complex: click, contextmenu(click right mouse button), dblclick(double click).</li>
+</ul>
+<p>An action may trigger multiple events. For instance, a click first triggers <code>mousedown</code>, when the button is pressed, then <code>mouseup</code> and <code>click</code> when it’s released. The handlers are called in the order <code>mousedown → mouseup → click</code>.<br>Both <code>click</code> and <code>contextmenu</code> trigger <code>mousedonw</code> and <code>mouseup</code>. <code>which</code> allows to distinguish between “right-mousedown” and “left-mousedown”: <code>event.which == 1</code> – the left button, <code>event.which == 2</code> – the middle button,<br><code>event.which == 3</code> – the right button.</p>
+<p>All mouse events include the information about pressed <em>modifier keys</em>: <code>shiftKey</code>, <code>altKey</code>, <code>ctrlKey</code>, <code>metaKey</code> (Cmd for Mac).</p>
+<p>All mouse events have coordinates in two flavours:</p>
+<ul>
+<li>Window-relative: <code>clientX</code> and <code>clientY</code>.</li>
+<li>Document-relative: <code>pageX</code> and <code>pageY</code>.</li>
+</ul>
+<p>We covered events mouseover, mouseout, mousemove, mouseenter and mouseleave.</p>
+<p>Things that are good to note:</p>
+<ul>
+<li>Events <code>mouseover/out</code> trigger even when we go from the parent element to a child element. They assume that the mouse can be only over one element at one time – the deepest one.</li>
+<li>Events <code>mouseenter/leave</code> <strong>do not bubble</strong> and do not trigger when the mouse goes to a child element. They only track whether the mouse comes inside and outside the element as a whole.</li>
+<li>A fast mouse move can make <code>mouseover</code>, <code>mousemove</code>, <code>mouseout</code> to skip intermediate elements.</li>
+<li>Events <code>mouseover/out</code> and <code>mouseenter/leave</code> have an additional target: <code>relatedTarget</code>. That’s the element that we are coming from/to, complementary to <code>target</code>.</li>
+</ul>
+<h3 id="Keyboard-events"><a href="#Keyboard-events" class="headerlink" title="Keyboard events"></a>Keyboard events</h3><p>Pressing a key always generates a keyboard event.<br>Keyboard events:</p>
+<ul>
+<li><code>keydown</code> – on pressing the key (<strong>auto-repeats</strong> if the key is pressed for long),</li>
+<li><code>keyup</code> – on releasing the key.</li>
+</ul>
+<p>Main keyboard event properties:</p>
+<ul>
+<li><code>event.code</code> – the “key code”, specific to the <strong>physical location</strong> of the key on keyboard.</li>
+<li><code>event.key</code> – the character (“A”, “a” and so on), it’s a specific value.<br>+<br>Let’s say, we want to handle a hotkey: <code>Ctrl+Z</code> (or <code>Cmd+Z</code> for Mac). We can set a listener on keydown and check which key is pressed – to detect when we have the hotkey. Please answer the question – in such a listener, should we check the value of event.key or event.code? (The answer is <code>event.code</code>.)</li>
+</ul>
+<h3 id="Page-lifecycle-events"><a href="#Page-lifecycle-events" class="headerlink" title="Page lifecycle events"></a>Page lifecycle events</h3><p><a href="https://github.com/fi3ework/blog/issues/3" target="_blank" rel="noopener">Page lifecycle events</a>:</p>
+<ul>
+<li><code>DOMContentLoaded</code> event triggers on <code>document</code> when DOM is ready. Images and other resources may still continue loading.</li>
+<li><code>load</code> event on <code>window</code> triggers when the page and all resources are loaded.</li>
+</ul>
+<blockquote>
+<p><code>onunload</code> 和 <code>onbeforeunload</code> 两个事件都是在执行页面刷新、关闭、浏览器关闭时能触发, <code>onunload</code> 是在服务器上已经读取到数据, 将要替换当前页面时执行, 一般用于当离开页面以后执行的动作. <code>onbeforeunload</code> 是正要向服务器读取新的页面时执行的动作，此事件执行在访问服务器事件之前, 一般用于提醒你是否要离开页面.</p>
+</blockquote>
+<p><code>document.readyState</code> is the current state of the document, changes can be tracked in the <code>readystatechange</code> event:</p>
+<ul>
+<li><code>loading</code> – the document is loading.</li>
+<li><code>interactive</code> – the document is parsed, happens at about the same time as <code>DOMContentLoaded</code>, but before it.</li>
+<li><code>complete</code> – the document and resources are loaded, happens at about the same time as <code>window.onload</code>, but before it.</li>
+</ul>
+<h3 id="Resource-loading-events"><a href="#Resource-loading-events" class="headerlink" title="Resource loading events"></a>Resource loading events</h3><p>The browser allows to track the loading of external resources – scripts, iframes, pictures and so on.<br>There are two events for it:</p>
+<ul>
+<li><code>onload</code> – successful load,</li>
+<li><code>onerror</code> – an error occurred.</li>
+</ul>
+<p>Only load event when the iframe loading finished. It triggers both for successful load and in case of an error. That’s for historical reasons.</p>
+<h3 id="Words-and-Phrases"><a href="#Words-and-Phrases" class="headerlink" title="Words and Phrases"></a>Words and Phrases</h3><ul>
 <li>sparingly = rarely</li>
+<li>emulate 仿真</li>
+<li>post-factum 事后行为</li>
 </ul>
 
       
@@ -701,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-event-handlers"><span class="nav-number">1.</span> <span class="nav-text">Assign event handlers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbling-and-capturing"><span class="nav-number">2.</span> <span class="nav-text">Bubbling and capturing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-delegation"><span class="nav-number">3.</span> <span class="nav-text">Event delegation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser-default-actions"><span class="nav-number">4.</span> <span class="nav-text">Browser default actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatching-custom-events"><span class="nav-number">5.</span> <span class="nav-text">Dispatching custom events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#words-and-phrases"><span class="nav-number">6.</span> <span class="nav-text">words and phrases</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-event-handlers"><span class="nav-number">1.</span> <span class="nav-text">Assign event handlers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbling-and-capturing"><span class="nav-number">2.</span> <span class="nav-text">Bubbling and capturing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-delegation"><span class="nav-number">3.</span> <span class="nav-text">Event delegation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser-default-actions"><span class="nav-number">4.</span> <span class="nav-text">Browser default actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatching-custom-events"><span class="nav-number">5.</span> <span class="nav-text">Dispatching custom events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mouse-events"><span class="nav-number">6.</span> <span class="nav-text">Mouse events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-events"><span class="nav-number">7.</span> <span class="nav-text">Keyboard events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page-lifecycle-events"><span class="nav-number">8.</span> <span class="nav-text">Page lifecycle events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-loading-events"><span class="nav-number">9.</span> <span class="nav-text">Resource loading events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Words-and-Phrases"><span class="nav-number">10.</span> <span class="nav-text">Words and Phrases</span></a></li></ol></div>
             
 
           </div>
