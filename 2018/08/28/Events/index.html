@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Introducton to Browser Events.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T20:01:37.246Z">
+<meta property="og:updated_time" content="2018-08-29T20:17:17.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Browser Events">
 <meta name="twitter:description" content="Introducton to Browser Events.">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-29 20:01:37" itemprop="dateModified" datetime="2018-08-29T20:01:37+00:00">2018-08-29</time>
+                <time title="Modified: 2018-08-29 20:17:17" itemprop="dateModified" datetime="2018-08-29T20:17:17+00:00">2018-08-29</time>
               
             
           </span>
@@ -458,7 +458,7 @@
 <li><p>DOM property: <code>elem.onclick = function</code>.</p>
 <p>We can assign a handler using a DOM property <code>on&lt;event&gt;</code>. As there’s only one onclick property, <strong>we can’t assign more than one event handler</strong>. To remove a handler – assign <code>elem.onclick = null</code>.</p>
 </li>
-<li><p>Methods: <code>elem.addEventListener(event, handler[, phase])</code> to add, <code>removeEventListener</code> to remove.</p>
+<li><p>Using <code>elem.addEventListener(event, handler[, phase])</code>to add, <code>removeEventListener</code> to remove.</p>
 <p>Multiple calls to <code>addEventListener</code> allow to add multiple handlers. There are few events that only work with it, for instance <code>transtionend</code> and <code>DOMContentLoaded</code> (to be covered). Also <code>addEventListener</code> supports objects and classes as event handlers. In that case the method <code>handleEvent</code> is called in case of the event.</p>
 </li>
 </ul>
@@ -517,7 +517,7 @@
 <p>By default both are false: <code>{bubbles: false, cancelable: false}</code>.</p>
 </li>
 </ul>
-<p>After an event object is created, we should dispatch it on an element using the call <code>elem.dispatchEvent(event)</code>.</p>
+<p>After an event object is created, we should dispatch it on an element using the call <br> <code>elem.dispatchEvent(event)</code>.</p>
 <p>We should use <code>addEventListener</code> for our custom events, because on<event> only exists for built-in events.</event></p>
 <p>For some UI Events, such as <code>FocusEvent</code>,<br><code>MouseEvent</code>, we should use something like <code>new MouseEvent(&quot;click&quot;)</code> instead of <code>new Event</code>, since they provide specify standard properties for that type of event, like <code>clientX/clientY</code> for a mouse event.</p>
 <p>For our own, custom events like “hello” we should use <code>new CustomEvent</code>. It provides a second argument <code>detail</code>, which is an object designed for any custom information that we want to pass with the event.</p>
