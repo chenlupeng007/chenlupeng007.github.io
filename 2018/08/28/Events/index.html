@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Introducton to Browser Events.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T20:25:41.636Z">
+<meta property="og:updated_time" content="2018-08-30T10:29:38.723Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Browser Events">
 <meta name="twitter:description" content="Introducton to Browser Events.">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-08-29 20:25:41" itemprop="dateModified" datetime="2018-08-29T20:25:41+00:00">2018-08-29</time>
+                <time title="Modified: 2018-08-30 10:29:38" itemprop="dateModified" datetime="2018-08-30T10:29:38+00:00">2018-08-30</time>
               
             
           </span>
@@ -573,7 +573,21 @@
 <li><code>onerror</code> – an error occurred.</li>
 </ul>
 <p>Only load event when the iframe loading finished. It triggers both for successful load and in case of an error. That’s for historical reasons.</p>
-<h3 id="Words-and-Phrases"><a href="#Words-and-Phrases" class="headerlink" title="Words and Phrases"></a>Words and Phrases</h3><ul>
+<h3 id="Forms-events"><a href="#Forms-events" class="headerlink" title="Forms events"></a>Forms events</h3><p>Form navigation:</p>
+<ul>
+<li>A form is available as <code>document.forms[name/index]</code>.</li>
+<li>Form elements are available as <code>form.elements[name/index]</code>, or can use just <code>form[name/index]</code>.</li>
+<li>Elements reference their form in the <code>form</code> property.</li>
+</ul>
+<p>For details, you can read the <a href="http://javascript.info/form-elements" target="_blank" rel="noopener">article</a>.</p>
+<p>An element receives a focus when the user either clicks on it or uses the Tab key on the keyboard. When a user clicks somewhere else or presses Tab to go to the next form field, it triggers the event losing the focus (“blur”).</p>
+<p>The focus event is called <code>onfocus</code>, and <code>onblur</code> – when the element loses the focus.</p>
+<p>Methods <code>elem.focus()</code> and <code>elem.blur()</code> set/unset the focus on the element.</p>
+<p>Events focus and blur do not bubble, but but propagate down on the capturing phase. For delegation purpose, you can use <code>focusin/focusout</code>.</p>
+<p>Let’s discuss various events that accompany data updates. The <code>change</code> event triggers when the element has finished changing. For text inputs that means that the event occurs when it looses focus, instead the <code>input</code> event triggers every time a value is modified.</p>
+<p>The <code>submit</code> event triggers when the form is submitted, it is usually used to validate the form before sending it to the server or to abort the submission and process it in JavaScript. To submit a form to the server manually, we can call <code>form.submit()</code>. Then the submit event is not generated.</p>
+<p>Words and Phrases</p>
+<ul>
 <li>sparingly = rarely</li>
 <li>emulate 仿真</li>
 <li>post-factum 事后行为</li>
@@ -766,7 +780,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-event-handlers"><span class="nav-number">1.</span> <span class="nav-text">Assign event handlers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbling-and-capturing"><span class="nav-number">2.</span> <span class="nav-text">Bubbling and capturing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-delegation"><span class="nav-number">3.</span> <span class="nav-text">Event delegation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser-default-actions"><span class="nav-number">4.</span> <span class="nav-text">Browser default actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatching-custom-events"><span class="nav-number">5.</span> <span class="nav-text">Dispatching custom events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mouse-events"><span class="nav-number">6.</span> <span class="nav-text">Mouse events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-events"><span class="nav-number">7.</span> <span class="nav-text">Keyboard events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page-lifecycle-events"><span class="nav-number">8.</span> <span class="nav-text">Page lifecycle events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-loading-events"><span class="nav-number">9.</span> <span class="nav-text">Resource loading events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Words-and-Phrases"><span class="nav-number">10.</span> <span class="nav-text">Words and Phrases</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assign-event-handlers"><span class="nav-number">1.</span> <span class="nav-text">Assign event handlers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bubbling-and-capturing"><span class="nav-number">2.</span> <span class="nav-text">Bubbling and capturing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Event-delegation"><span class="nav-number">3.</span> <span class="nav-text">Event delegation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Browser-default-actions"><span class="nav-number">4.</span> <span class="nav-text">Browser default actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dispatching-custom-events"><span class="nav-number">5.</span> <span class="nav-text">Dispatching custom events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mouse-events"><span class="nav-number">6.</span> <span class="nav-text">Mouse events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Keyboard-events"><span class="nav-number">7.</span> <span class="nav-text">Keyboard events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Page-lifecycle-events"><span class="nav-number">8.</span> <span class="nav-text">Page lifecycle events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resource-loading-events"><span class="nav-number">9.</span> <span class="nav-text">Resource loading events</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forms-events"><span class="nav-number">10.</span> <span class="nav-text">Forms events</span></a></li></ol></div>
             
 
           </div>
