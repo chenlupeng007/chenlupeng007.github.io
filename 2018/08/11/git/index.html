@@ -127,8 +127,8 @@
 <meta property="og:image" content="http://yoursite.com/img/3.png">
 <meta property="og:image" content="http://yoursite.com/img/4.png">
 <meta property="og:image" content="http://yoursite.com/img/5.png">
-<meta property="og:image" content="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384926554932eb5e65df912341c1a48045bc274ba4bf000/0">
-<meta property="og:updated_time" content="2018-11-06T03:26:41.849Z">
+<meta property="og:image" content="http://yoursite.com/img/6.png">
+<meta property="og:updated_time" content="2018-11-06T03:30:46.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git">
 <meta name="twitter:description" content="Learning note of Git.">
@@ -392,7 +392,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-06 11:26:41" itemprop="dateModified" datetime="2018-11-06T11:26:41+08:00">2018-11-06</time>
+                <time title="Modified: 2018-11-06 11:30:46" itemprop="dateModified" datetime="2018-11-06T11:30:46+08:00">2018-11-06</time>
               
             
           </span>
@@ -466,7 +466,7 @@
 <p>当前目录下多了一个 <code>.git</code> 的目录, 这个目录是 Git 用来跟踪管理版本库的, 不要手动修改这个目录里面的文件.</p>
 </li>
 </ul>
-<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2>  <center><br>    <img src="/img/1.jpg" width="70%"><br>    <br><br>    <br><br>  </center>
+<h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2>  <center><br>    <img src="/img/1.jpg" width="70%"><br>  </center>
 
 <p>  工作区 (Working Directory) 就是你工作的目录. 工作区有一个隐藏目录 <code>.git</code>, 这个不算工作区, 而是 Git 的版本库 (Repository).</p>
 <p>  Git 的版本库里存了很多东西, 其中 <code>.git/index</code> 文件夹称为暂存区, 它实际上就是一个包含文件索引的目录树, 文件的内容并不存储其中, 而是保存在 Git 对象库 <code>.git/objects</code> 中. Git 还为我们自动创建的第一个分支 <code>master</code>, 以及指向 <code>master</code> 的一个指针叫 <code>HEAD</code>. 工作区、暂存区和版本库都各自维持着一棵目录树, 初始状态三者一致.</p>
@@ -493,7 +493,7 @@
 </ul>
 <h2 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h2><p><strong>分支策略</strong></p>
 <p>在实际开发中, 我们应该按照几个基本原则进行分支管理： 首先, master 分支应该是非常稳定的, 也就是仅用来发布新版本, 平时不能在上面干活; 那在哪干活呢? 干活都在 dev 分支上, 也就是说, dev 分支是不稳定的, 到某个时候, 比如 1.0 版本发布时, 再把 dev 分支合并到 master 上, 在 master 分支发布 1.0 版本； 你和你的小伙伴们每个人都在 dev 分支上干活, 每个人都有自己的分支, 时不时地往 dev 分支上合并就可以了. 所以, 团队合作的分支看起来就像这样:</p>
-<center><br><img src="/img/2.png" width="70%"><br><br><br><br><br></center>
+<center><br><img src="/img/2.png" width="70%"><br></center>
 
 <p><strong>创建分支</strong></p>
 <p>master 指针指向主分支的最新提交, HEAD 指针指向当前分支的最新提交.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git branch &lt;branch&gt; // 创建分支, 也即是创造另一个指针</span><br><span class="line">$ git checkout &lt;branch&gt; // 切换分支, 也即是把 HEAD 指向分支指针</span><br><span class="line">// 以上两步可以合并成 git checkout -b &lt;branch&gt;</span><br><span class="line">$ git branch // 列出所有分支</span><br></pre></td></tr></table></figure></p>
@@ -504,10 +504,10 @@
 <p>在分支上作完修改并提交后, 要合并到 <code>master</code> 主分支, 需要先切换到 <code>master</code> 分支.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout master</span><br><span class="line">$ git merge &lt;branch&gt; // 合并分支到当前分支</span><br><span class="line">// 有冲突需要手动解决冲突</span><br><span class="line">// git merge --no-ff -m &lt;message&gt; &lt;branch&gt; 强制使用 non fast-forward</span><br><span class="line">// non fast-forward 合并自动生成一个提交, -m 可以添加提交信息</span><br><span class="line">$ git branch -d &lt;branch&gt; // 删除分支</span><br><span class="line">$ git log --graph --pretty=oneline --abbrev-commit</span><br><span class="line">// 可以查看分支的合并情况</span><br></pre></td></tr></table></figure></p>
 <p><strong>reabase</strong></p>
 <p>如下图所示, bugfix 分支是从 master 分支分叉出来的.</p>
-<center><br><img src="/img/3.png" width="50%"><br><br><br><br><br></center>
+<center><br><img src="/img/3.png" width="50%"><br></center>
 
 <p>之后 master 上增加了修改: C 和 D, 而我们的分支想要建立在 C 和 D 的基础上, 也就是说本来我们是基于提交 B 的, 现在想要基于 C 和 D, 这种情况叫做 rebase. 使用 rebase 方法进行分支合并, 会出现下图所显示的历史记录.</p>
-<center><br><img src="/img/4.png" width="70%"><br><br><br><br><br></center>
+<center><br><img src="/img/4.png" width="70%"><br></center>
 
 <p>首先, rebase bugfix 分支到 master 分支, bugfix 分支的历史记录会添加在 master 分支的后面, 但是此时 X’ 和 Y’ 是从 X 和 Y 复制过来的, 不再是 X 和 Y 了. 如图所示, 历史记录成一条线. 此时如果继续提交 X’ 和 Y’ 有可能会发生冲突, 所以仍然需要解决冲突. rebase 之后, master 的 HEAD 位置不变. 因此, 要合并 master 分支和 bugfix 分支, 即是将 master 的 HEAD 移动到 bugfix 的 HEAD 这里.</p>
 <center><br><img src="/img/5.png" width="70%"><br></center>
@@ -582,7 +582,7 @@
 <li><p>Github 的基本使用<br>如何参与一个开源项目呢(比如人气极高的 Bootstrap 项目)? 点 Fork 就在自己的账号下克隆了一个 Bootstrap 仓库, 然后从自己的账号下clone: <code>git clone git@github.com:&lt;AccountName&gt;/bootstrap.git</code>.<br>Bootstrap 的官方仓库 twbs/bootstrap、你在 GitHub 上克隆的仓库 my/bootstrap, 以及你自己克隆到本地电脑的仓库, 他们的关系就像下图显示的那样：</p>
 </li>
 </ol>
-<center><br>  <img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384926554932eb5e65df912341c1a48045bc274ba4bf000/0" width="70%"><br></center>
+<center><br>  <img src="/img/6.png" width="70%"><br></center>
 
 <p>然后在本地修改一个 Bug, 推送到 Github 仓库, 如果你希望 Bootstrap 的官方库能接受你的修改, 你就可以在 GitHub 上发起一个 pull request.</p>
 <!-- ## 参考
