@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Dual Booting Arch Linux / Windows 10 On Surface Pro.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-06T04:20:21.788Z">
+<meta property="og:updated_time" content="2018-11-10T04:48:01.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arch Linux">
 <meta name="twitter:description" content="Dual Booting Arch Linux / Windows 10 On Surface Pro.">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-11-06 12:20:21" itemprop="dateModified" datetime="2018-11-06T12:20:21+08:00">2018-11-06</time>
+                <time title="Modified: 2018-11-10 12:48:01" itemprop="dateModified" datetime="2018-11-10T12:48:01+08:00">2018-11-10</time>
               
             
           </span>
@@ -458,7 +458,7 @@
 <li><p>设置从 USB 启动<br>首先按住音量键并启动, 入 UEFI, 闭安全启动, 将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB 启动 Arch Linux. 选择第一个选项进入系统.</p>
 </li>
 </ol>
-<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p>安装过程需要使用网络. 用数据线连接手机, 开USB网络共享.</p>
+<h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><p>安装过程需要使用网络. 用数据线连接手机, 开 USB 网络共享.</p>
 <ol>
 <li><p>设置屏幕字体大小<br>由于分辨率太高, 致字体显示太小, 新设置终端字体</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># setfont /usr/share/kbd/consolefonts/latarcyrheb-sun32.psfu.gz</span><br></pre></td></tr></table></figure>
@@ -467,7 +467,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># dhcpcd</span><br><span class="line"># ping -c 3 www.baidu.com // 成功接收到数据包则连接成功</span><br><span class="line"># timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>分区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># fdisk -l // 以下是一个输出实例</span><br><span class="line">nvme0n1 259:0 0 238.5G</span><br><span class="line">|- nvme0n1p1 259:1 0 260M</span><br><span class="line">|- nvme0n1p2 259:2 0 128M</span><br><span class="line">|- nvme0n1p3 259:3 0 174.8G</span><br><span class="line">|- nvme0n1p4 259:4 0 830M</span><br><span class="line"># gdisk /dev/nvme0n1</span><br><span class="line">/*1. n(new)</span><br><span class="line">  2. 在last sector时 +20G, 其余回车, 择默认设置</span><br><span class="line">  3. n 回车选择默认设置, 出第6部分</span><br><span class="line">  4. p 看是否分区成功 5. w(write) Y(Yes)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># fdisk -l // 以下是一个输出实例</span><br><span class="line">nvme0n1 259:0 0 238.5G</span><br><span class="line">|- nvme0n1p1 259:1 0 260M</span><br><span class="line">|- nvme0n1p2 259:2 0 128M</span><br><span class="line">|- nvme0n1p3 259:3 0 174.8G</span><br><span class="line">|- nvme0n1p4 259:4 0 830M</span><br><span class="line"># gdisk /dev/nvme0n1</span><br><span class="line">/*1. n(new)</span><br><span class="line">  2. 在last sector时 +20G, 其余回车, 择默认设置</span><br><span class="line">  3. n 回车选择默认设置, 出第 6 部分</span><br><span class="line">  4. p 看是否分区成功 5. w(write) Y(Yes)</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>格式化</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># mkfs.ext4 /dev/nvme0n1p5</span><br><span class="line"># mkfs.ext4 /dev/nvme0n1p6</span><br></pre></td></tr></table></figure>
@@ -476,7 +476,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/nvme0n1p5 /mnt</span><br><span class="line"># mkdir /mnt/home</span><br><span class="line"># mount /dev/nvme0n1p6 /mnt/home</span><br><span class="line"># mkdir -p /mnt/boot/efi // 创建 UEFI 挂载点</span><br><span class="line"># mount /dev/nvme0n1p1 /mnt/boot/efi // 挂载 UEFI 分区</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装 base</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/pacman.d/mirrorlist //把163的提到第一个</span><br><span class="line"># pacstrap -i /mnt base base-devel</span><br><span class="line"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br><span class="line"># cat /mnt/etc/fstab</span><br><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/pacman.d/mirrorlist //把 163 的提到第一个</span><br><span class="line"># pacstrap -i /mnt base base-devel</span><br><span class="line"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br><span class="line"># cat /mnt/etc/fstab</span><br><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装 grub</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr os-prober(双系统必装)</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg //(reboot 后还要运行一次, 行结果才会出现windows manager)</span><br></pre></td></tr></table></figure>
@@ -496,7 +496,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vi /etc/locale.gen // 移除下面两行前的注释符号</span><br><span class="line">en\_US.UTF-8 UTF-8</span><br><span class="line">zh\_CN.UTF-8 UTF-8</span><br><span class="line"># locale-gen</span><br><span class="line"># echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>hostname</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># echo Arch &gt; /etc/hostname //将主机名Arch填入</span><br><span class="line"># vi /etc/hosts // 修改 host</span><br><span class="line">完成后看起来像这样:</span><br><span class="line"># cat /etc/hostname</span><br><span class="line">Arch</span><br><span class="line"># cat /etc/hosts</span><br><span class="line">127.0.0.1 localhost.localdomain localhost</span><br><span class="line">::1 localhost.localdomain localhost</span><br><span class="line">127.0.1.1 Arch.localdomain Arch</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># echo Arch &gt; /etc/hostname //将主机 Arch 入</span><br><span class="line"># vi /etc/hosts // 修改 host</span><br><span class="line">完成后看起来像这样:</span><br><span class="line"># cat /etc/hostname</span><br><span class="line">Arch</span><br><span class="line"># cat /etc/hosts</span><br><span class="line">127.0.0.1 localhost.localdomain localhost</span><br><span class="line">::1 localhost.localdomain localhost</span><br><span class="line">127.0.1.1 Arch.localdomain Arch</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>时间<br>Linux 和 Windows 开机都会从 BIOS 读取硬件时间(RTC).</p>
 <p>Windonws 默认把这个时间当做是你所在地的时间(Local Time), 系统将这个时间显示出来, 因此我们在系统上看到的时间(系统时间)就是硬件时间.</p>
@@ -520,7 +520,7 @@
 <li><p>Touchpad 左键使用不习惯.<br>setting –&gt; devices –&gt; mouse and touchpad –&gt; tab to click;<br>tweaks –&gt; mouse &amp; touchpad –&gt; Mouse click emulation (Area).</p>
 </li>
 <li><p>sudo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S sudo vim</span><br><span class="line">$ visudo //（在 root ALL=(ALL)下面仿照格式把root 改成 username）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S sudo vim</span><br><span class="line">$ visudo //（在 root ALL=(ALL)下面仿照格式把 root 改成 username）</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加 archlinuxcn 源</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/pacman.conf // 添加以下几行</span><br><span class="line">[archlinuxcn]</span><br><span class="line">#The Chinese Arch Linux communities packages.</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">Server = http://repo.archlinuxcn.org/$arch</span><br><span class="line">$ sudo pacman -Syu</span><br></pre></td></tr></table></figure>
@@ -530,14 +530,14 @@
 <p>然后还需要修改 fcitx-configtool 中的设置: Default Keyboard Layout –&gt; 选择 Chinese, 添加 –&gt; Add input method（+号）选择 Sougou Pinyin.</p>
 </li>
 <li><p>chrome</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S wqy-microhei wqy-zenhei yaourt// 字体</span><br><span class="line">$ sudo yaourt -S google-chrome // 如果root账号下安装 chrome, chrome 无法启动.</span><br><span class="line">$ sudo pacman -R epiphany</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S wqy-microhei wqy-zenhei yaourt// 字体</span><br><span class="line">$ sudo yaourt -S google-chrome // 如 root 号下安装 chrome, chrome 无法启动.</span><br><span class="line">$ sudo pacman -R epiphany</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>shadowsocks</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S shadowsocks-qt5</span><br></pre></td></tr></table></figure>
 <p>浏览器上安装 SwitchyOmega 插件.</p>
 </li>
 <li><p>桌面美化</p>
-<p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">下载</a> Extensions(dash-to-dock, hidetipbar, pixel-saver), 解压缩后, 放到：<code>~/.local/share/gnome-shell/extensions/</code> 下.<br><a href="https://www.gnome-look.org/p/1102582/" target="_blank" rel="noopener">下载</a> Icon Theme: MacOS iCons, 解压缩后, 放到：<code>home/.icons/</code> 下.<br><a href="https://www.gnome-look.org/p/1171688/" target="_blank" rel="noopener">下载</a> GTK3 Theme: Gnome-OSC, 解压缩后, 把里面两个文件, 放到：<code>home/.themes/</code>下.<br>[下载] Gnome Shell Theme: masOS11-shell 放到 <code>home/.themes/</code>下.<br><code>Alt-F2 + rs</code>后, 代开 Gnoem-Tweaks 进行设置.</p>
+<p><a href="https://extensions.gnome.org/" target="_blank" rel="noopener">下载</a> Extensions(dash-to-dock, hidetipbar, pixel-saver), 解压缩后, 放到: <code>~/.local/share/gnome-shell/extensions/</code> 下.<br><a href="https://www.gnome-look.org/p/1102582/" target="_blank" rel="noopener">下载</a> Icon Theme: MacOS iCons, 解压缩后, 放到: <code>home/.icons/</code> 下.<br><a href="https://www.gnome-look.org/p/1171688/" target="_blank" rel="noopener">下载</a> GTK3 Theme: Gnome-OSC, 解压缩后, 把里面两个文件, 放到: <code>home/.themes/</code>下.<br>[下载] Gnome Shell Theme: masOS11-shell 放到 <code>home/.themes/</code>下.<br><code>Alt-F2 + rs</code>后, 代开 Gnoem-Tweaks 进行设置.</p>
 </li>
 <li><p>解决休眠问题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/logind.conf</span><br><span class="line">HandleLidSwitch=ignore</span><br><span class="line">$ systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>

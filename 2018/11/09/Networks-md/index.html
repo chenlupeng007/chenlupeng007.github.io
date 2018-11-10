@@ -126,7 +126,7 @@
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052904.png">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052908.png">
 <meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052910.png">
-<meta property="og:updated_time" content="2018-11-09T13:25:32.819Z">
+<meta property="og:updated_time" content="2018-11-10T04:50:07.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Networks">
 <meta name="twitter:description" content="Introduction to Computer Netwoks.">
@@ -373,12 +373,24 @@
                 
               
 
-              <time title="Created: 2018-11-09 21:08:58 / Modified: 21:25:32" itemprop="dateCreated datePublished" datetime="2018-11-09T21:08:58+08:00">2018-11-09</time>
+              <time title="Created: 2018-11-09 21:08:58" itemprop="dateCreated datePublished" datetime="2018-11-09T21:08:58+08:00">2018-11-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-11-10 12:50:07" itemprop="dateModified" datetime="2018-11-10T12:50:07+08:00">2018-11-10</time>
               
             
           </span>
@@ -443,7 +455,7 @@
       
         <p>Introduction to Computer Netwoks.<br><a id="more"></a></p>
 <h2 id="Understanding-Internet-Protocol"><a href="#Understanding-Internet-Protocol" class="headerlink" title="Understanding Internet Protocol"></a>Understanding Internet Protocol</h2><p>全球的计算机通过光缆, 电缆, 双绞线, 无线电波等方式连接起来, 组成了网络, 这些将计算机连接起来的实体位于实体层. 实体层主要规定网络的一些电气特性, 作用是负责传送 0 和 1 的电信号.</p>
-<p>计算机上安装的网卡负责发送, 接收这些电信号. 为了解读电信号, 需要规定0和1的分组方式, 链接层的协议负责规定这些. 每块网卡出厂的时候, 都会带有一个全世界独一无二的 MAC 地址, 长度是 48 个二进制位, 通常用 12 个十六进制数表示, 前6个十六进制数是厂商编号, 后6个是该厂商的网卡流水号.</p>
+<p>计算机上安装的网卡负责发送, 接收这些电信号. 为了解读电信号, 需要规定 0 和 1 的分组方式, 链接层的协议负责规定这些. 每块网卡出厂的时候, 都会带有一个全世界独一无二的 MAC 地址, 长度是 48 个二进制位, 通常用 12 个十六进制数表示, 前 6 个十六进制数是厂商编号, 后 6 个是该厂商的网卡流水号.</p>
 <center><br>  <img src="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052906.png"><br></center>
 
 <p>以链接层的以太网协议为例, 以太网规定的一组电信号(数据包), 叫做”帧”. 每一帧分成两个部分: 标头(Head)和数据(Data). 标头包含数据包的一些说明项, 比如发送者和接受者的 MAC 地址(假设已经获得了对方的 MAC 地址); 数据则是数据包的具体内容. 标头的长度固定为 18 字节, 数据的长度为 46~1500 字节. 因此, 整个”帧”最短为 64(18+46) 字节, 最长为 1518(18+1500) 字节. 如果数据过长, 就必须分割成多个帧进行发送.</p>
