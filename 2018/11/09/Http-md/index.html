@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://mdn.mozillademos.org/files/13791/HTTPNegoServer.png">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/13795/HTTPNego3.png">
 <meta property="og:image" content="http://yoursite.com/img/7.png">
-<meta property="og:updated_time" content="2018-11-09T13:27:03.446Z">
+<meta property="og:updated_time" content="2018-12-25T21:16:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding HTTP">
 <meta name="twitter:description" content="Introduction to HTTP.">
@@ -232,7 +232,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Startseite</a>
   </li>
         
         
@@ -240,7 +240,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Categories</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />Kategorien</a>
   </li>
         
         
@@ -248,7 +248,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />About</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />Über</a>
   </li>
 
       
@@ -258,7 +258,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Search</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />Suche</a>
         </li>
       
     </ul>
@@ -365,19 +365,31 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
 
               
                 
               
 
-              <time title="Created: 2018-11-09 17:33:44 / Modified: 21:27:03" itemprop="dateCreated datePublished" datetime="2018-11-09T17:33:44+08:00">2018-11-09</time>
+              <time title="Post created: 2018-11-09 17:33:44" itemprop="dateCreated datePublished" datetime="2018-11-09T17:33:44+08:00">2018-11-09</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Updated at: 2018-12-26 05:16:56" itemprop="dateModified" datetime="2018-12-26T05:16:56+08:00">2018-12-26</time>
               
             
           </span>
@@ -391,7 +403,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Computer-Networks/" itemprop="url" rel="index"><span itemprop="name">Computer Networks</span></a></span>
@@ -488,7 +500,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">value</span>=<span class="string">"some text"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"myFile"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>请求头看起来像这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=---------------------------974767299852498929531610575</span><br><span class="line"></span><br><span class="line">---------------------------974767299852498929531610575</span><br><span class="line">Content-Disposition: form-data; name=&quot;description&quot;</span><br><span class="line"></span><br><span class="line">some text</span><br><span class="line">---------------------------974767299852498929531610575</span><br><span class="line">Content-Disposition: form-data; name=&quot;myFile&quot;; filename=&quot;foo.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">(content of the uploaded file foo.txt)</span><br><span class="line">---------------------------974767299852498929531610575</span><br></pre></td></tr></table></figure></p>
 <h3 id="跨域资源共享-CORS"><a href="#跨域资源共享-CORS" class="headerlink" title="跨域资源共享(CORS)"></a>跨域资源共享(CORS)</h3><p>当一个资源从与该资源本身所在的服务器不同的域或端口请求一个资源时, 资源会发起一个跨域 HTTP 请求. 这个请求会发给服务器, 服务器也会返回响应, 但是响应中如果没有设置 Access-Control-Allow-Origin 来允许跨域的话, 浏览器并不会把它显示出来, 而会报错. <code>src, img</code> 等标签是允许跨域的, 但是由 <code>XMLHttpRequest</code> 或 <code>Fetch</code> 发起的跨域 HTTP 请求则需要服务器端设置消息头来允许 CORS.</p>
-<p>另外, 某些情况下, 浏览器必须首先使用 OPTIONS 方法发起一个预检请求, 从而获知服务端是否允许该跨域请求. 这些情况包括使用 Get, PSOT, HEAD 以外的方法, 使用自定义的请求头, 使用 <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>text/plain</code> 以外的 <code>Content-Type</code> 等等.</p>
+<p>另外, 某些情况下, 浏览器必须首先使用 OPTIONS 方法发起一个预检请求, 从而获知服务端是否允许该跨域请求. 这些情况包括使用 Get, POST, HEAD 以外的方法, 使用自定义的请求头, 使用 <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>text/plain</code> 以外的 <code>Content-Type</code> 等等.</p>
 <p>一个预先请求的例子:</p>
 <p>请求消息头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Request-Method: POST</span><br><span class="line">Access-Control-Request-Headers: X-PINGOTHER, Content-Type</span><br><span class="line">Credentials: true</span><br></pre></td></tr></table></figure></p>
 <p>响应消息头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http://foo.example</span><br><span class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</span><br><span class="line">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type</span><br><span class="line">Access-Control-Allow-Credentials: true</span><br><span class="line">Access-Control-Max-Age: 8000</span><br></pre></td></tr></table></figure></p>
@@ -555,10 +567,6 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/09/Networks-md/" rel="prev" title="Understanding Internet Protocol">
-                Understanding Internet Protocol <i class="fa fa-chevron-right"></i>
-              </a>
-            
           </div>
         </div>
       
@@ -618,10 +626,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -641,8 +649,8 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">6</span>
-                    <span class="site-state-item-name">posts</span>
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">Artikel</span>
                   </a>
                 </div>
               
@@ -663,7 +671,7 @@
                       
                     
                     <span class="site-state-item-count">4</span>
-                    <span class="site-state-item-name">categories</span>
+                    <span class="site-state-item-name">Kategorien</span>
                   </a>
                 </div>
               
@@ -748,7 +756,7 @@
 
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
 
 
 
