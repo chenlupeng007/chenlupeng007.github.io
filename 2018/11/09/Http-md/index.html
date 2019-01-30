@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://mdn.mozillademos.org/files/13791/HTTPNegoServer.png">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/13795/HTTPNego3.png">
 <meta property="og:image" content="http://yoursite.com/img/7.png">
-<meta property="og:updated_time" content="2018-12-25T21:16:56.000Z">
+<meta property="og:updated_time" content="2019-01-30T08:21:46.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Understanding HTTP">
 <meta name="twitter:description" content="Introduction to HTTP.">
@@ -389,7 +389,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-26 05:16:56" itemprop="dateModified" datetime="2018-12-26T05:16:56+08:00">2018-12-26</time>
+                <time title="Updated at: 2019-01-30 16:21:46" itemprop="dateModified" datetime="2019-01-30T16:21:46+08:00">2019-01-30</time>
               
             
           </span>
@@ -500,7 +500,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/"</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">value</span>=<span class="string">"some text"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"myFile"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>请求头看起来像这样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=---------------------------974767299852498929531610575</span><br><span class="line"></span><br><span class="line">---------------------------974767299852498929531610575</span><br><span class="line">Content-Disposition: form-data; name=&quot;description&quot;</span><br><span class="line"></span><br><span class="line">some text</span><br><span class="line">---------------------------974767299852498929531610575</span><br><span class="line">Content-Disposition: form-data; name=&quot;myFile&quot;; filename=&quot;foo.txt&quot;</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">(content of the uploaded file foo.txt)</span><br><span class="line">---------------------------974767299852498929531610575</span><br></pre></td></tr></table></figure></p>
 <h3 id="跨域资源共享-CORS"><a href="#跨域资源共享-CORS" class="headerlink" title="跨域资源共享(CORS)"></a>跨域资源共享(CORS)</h3><p>当一个资源从与该资源本身所在的服务器不同的域或端口请求一个资源时, 资源会发起一个跨域 HTTP 请求. 这个请求会发给服务器, 服务器也会返回响应, 但是响应中如果没有设置 Access-Control-Allow-Origin 来允许跨域的话, 浏览器并不会把它显示出来, 而会报错. <code>src, img</code> 等标签是允许跨域的, 但是由 <code>XMLHttpRequest</code> 或 <code>Fetch</code> 发起的跨域 HTTP 请求则需要服务器端设置消息头来允许 CORS.</p>
-<p>另外, 某些情况下, 浏览器必须首先使用 OPTIONS 方法发起一个预检请求, 从而获知服务端是否允许该跨域请求. 这些情况包括使用 Get, POST, HEAD 以外的方法, 使用自定义的请求头, 使用 <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>text/plain</code> 以外的 <code>Content-Type</code> 等等.</p>
+<p>另外, 某些情况下, 浏览器必须首先使用 OPTIONS 方法发起一个预检请求, 从而获知服务端是否允许该跨域请求. 这些情况包括使用 GET, POST, HEAD 以外的方法, 使用自定义的请求头, 使用 <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>text/plain</code> 以外的 <code>Content-Type</code> 等等.</p>
 <p>一个预先请求的例子:</p>
 <p>请求消息头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Request-Method: POST</span><br><span class="line">Access-Control-Request-Headers: X-PINGOTHER, Content-Type</span><br><span class="line">Credentials: true</span><br></pre></td></tr></table></figure></p>
 <p>响应消息头<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-Origin: http://foo.example</span><br><span class="line">Access-Control-Allow-Methods: POST, GET, OPTIONS</span><br><span class="line">Access-Control-Allow-Headers: X-PINGOTHER, Content-Type</span><br><span class="line">Access-Control-Allow-Credentials: true</span><br><span class="line">Access-Control-Max-Age: 8000</span><br></pre></td></tr></table></figure></p>
@@ -742,7 +742,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>

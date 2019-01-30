@@ -122,7 +122,7 @@
 <meta property="og:site_name" content="Seashore">
 <meta property="og:description" content="Dual Booting Arch Linux / Windows 10 On Surface Pro.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-26T02:49:37.523Z">
+<meta property="og:updated_time" content="2018-12-31T03:40:34.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Arch Linux">
 <meta name="twitter:description" content="Dual Booting Arch Linux / Windows 10 On Surface Pro.">
@@ -385,7 +385,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Updated at: 2018-12-26 10:49:37" itemprop="dateModified" datetime="2018-12-26T10:49:37+08:00">2018-12-26</time>
+                <time title="Updated at: 2018-12-31 11:40:34" itemprop="dateModified" datetime="2018-12-31T11:40:34+08:00">2018-12-31</time>
               
             
           </span>
@@ -449,14 +449,15 @@
 
       
         <p>Dual Booting Arch Linux / Windows 10 On Surface Pro.<br><a id="more"></a></p>
-<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><p>Device: Surface Pro 2017<br>OS: Windows 10 / Arch Linux 2018.05.01<br>Method: USB Installer</p>
+<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><ul>
+<li>Device: Surface Pro 2017</li>
+<li>OS: Windows 10 / Arch Linux 2018.12</li>
+<li>Method: USB Installer</li>
+</ul>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ol>
-<li><p>压缩卷<br>右键开始 –&gt; 磁盘管理(K) –&gt; 选择主分区 –&gt; 压缩卷 –&gt; 分出 40 G.</p>
-</li>
-<li><p>制作启动盘<br>下载 Arch Linux 和 Rufus 并制作好启动盘（选择 UEFI, GPT).</p>
-</li>
-<li><p>设置从 USB 启动<br>首先按住音量键并启动, 入 UEFI, 闭安全启动, 将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB 启动 Arch Linux. 选择第一个选项进入系统.</p>
-</li>
+<li>压缩卷<br>右键开始 –&gt; 磁盘管理(K) –&gt; 选择主分区 –&gt; 压缩卷 –&gt; 分出 40 G.</li>
+<li>制作启动盘<br>下载 Arch Linux 和 Rufus 并制作好启动盘(选择 UEFI, GPT).</li>
+<li>设置从 USB 启动<br>首先按住音量键并启动, 入 UEFI, 闭安全启动, 将启动顺序改为从 USB 启动. 插入 USB 后 Reboot 就能从 USB 启动 Arch Linux. 选择第一个选项进入系统.</li>
 </ol>
 <h3 id="基本安装"><a href="#基本安装" class="headerlink" title="基本安装"></a>基本安装</h3><p>安装过程需要使用网络. 如果是校园网可以用数据线连接手机, 开 USB 网络共享.</p>
 <ol>
@@ -479,12 +480,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># vim /etc/pacman.d/mirrorlist //把 163 的提到第一个</span><br><span class="line"># pacstrap /mnt base base-devel</span><br><span class="line"># genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span><br><span class="line"># cat /mnt/etc/fstab</span><br><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装 grub</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr os-prober(双系统必装)</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg //(reboot 后还要运行一次, 行结果才会出现 windows manager)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr os-prober(双系统必装)</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg //(reboot 后还要运行一次, 行结果才会出现 windows manager)</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h3 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h3><ol start="0">
 <li><p>准备</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S vim git sudo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S vim git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>时区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
@@ -495,12 +496,10 @@
 <li><p>hostname</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># echo Arch &gt; /etc/hostname //将主机 Arch 入</span><br><span class="line"># vim /etc/hosts // 修改 host</span><br><span class="line">完成后看起来像这样:</span><br><span class="line"># cat /etc/hostname</span><br><span class="line">Arch</span><br><span class="line"># cat /etc/hosts</span><br><span class="line">127.0.0.1     localhost</span><br><span class="line">::1           localhost</span><br><span class="line">127.0.1.1     Arch.localdomain      Arch</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>时间<br>Linux 和 Windows 开机都会从 BIOS 读取硬件时间(RTC).</p>
-<p>Windonws 默认把这个时间当做是你所在地的时间(Local Time), 系统将这个时间显示出来, 因此我们在系统上看到的时间(系统时间)就是硬件时间.</p>
-<p>Linux 默认把硬件时间当做英国现在的时间(UTC), 然后根据你设定的时区计算出当地时间(Local Time). 例如时区如果是 Asia/Shanghai, 那么就把硬件时间(RTC) +8:00:00, 再显示成系统时间. 因此你在 Linux 上看到的时间要比 Windows 上显示的时间快 8 小时. 我们把 Windows 10(64 位)设置成使用 UTC 时间: 用管理员权限启动 Powershell 运行</p>
+<li><p>time<br>Linux 和 Windows 开机都会从 BIOS 读取硬件时间(RTC).<br>Windonws 默认把这个时间当做是你所在地的时间(Local Time), 系统将这个时间显示出来, 因此我们在系统上看到的时间(系统时间)就是硬件时间.<br>Linux 默认把硬件时间当做英国现在的时间(UTC), 然后根据你设定的时区计算出当地时间(Local Time). 例如时区如果是 Asia/Shanghai, 那么就把硬件时间(RTC) +8:00:00, 再显示成系统时间. 因此你在 Linux 上看到的时间要比 Windows 上显示的时间快 8 小时. 我们把 Windows 10(64 位)设置成使用 UTC 时间: 用管理员权限启动 Powershell 运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add &quot;HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TimeZoneInformation&quot; /v RealTimeIsUniversal /d 1 /t REG_QWORD /f</span><br></pre></td></tr></table></figure>
 <p>然后利用 Windows 10 自动更新时间, 这样关机后 Windows 上显示的正确时间会减 8 小时再写入成硬件时间. 开机后 Linux 上显示的时间就是正确的了.最后记得建议关闭Windows 10 下的自动更新时间.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl</span><br><span class="line">               Local time: Fri 2018-09-28 16:28:59 CST</span><br><span class="line">           Universal time: Fri 2018-09-28 08:28:59 UTC</span><br><span class="line">                 RTC time: Fri 2018-09-28 08:28:59</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: yes</span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC in local TZ: no</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ timedatectl</span><br><span class="line">              Local time: Fri 2018-09-28 16:28:59 CST</span><br><span class="line">          Universal time: Fri 2018-09-28 08:28:59 UTC</span><br><span class="line">                RTC time: Fri 2018-09-28 08:28:59</span><br><span class="line">                Time zone: Asia/Shanghai (CST, +0800)</span><br><span class="line">System clock synchronized: yes</span><br><span class="line">              NTP service: active</span><br><span class="line">          RTC in local TZ: no</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>网络</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S networkmanager iw wpa_supplicant dialog</span><br><span class="line"># systemctl enable dhcpcd NetworkManager</span><br></pre></td></tr></table></figure>
@@ -518,13 +517,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># sudo vim /etc/pacman.conf // 添加以下几行</span><br><span class="line">[archlinuxcn]</span><br><span class="line">#The Chinese Arch Linux communities packages.</span><br><span class="line">SigLevel = Optional TrustAll</span><br><span class="line">Server = http://repo.archlinuxcn.org/$arch</span><br><span class="line"># pacman -Syu</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重启 reboot</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># CTRL-D // exit</span><br><span class="line"># umount -f /mnt/boot/efi</span><br><span class="line"># umount -f /mnt</span><br><span class="line"># reboot // 记得移除 USB</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># CTRL-D // exit</span><br><span class="line"># umount -f /mnt/boot/efi</span><br><span class="line"># umount -f /mnt</span><br><span class="line"># reboot // 记得移除 USB</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>重启后 gnome 启动, 登录用户账户.</p>
-<h3 id="gnome-设置"><a href="#gnome-设置" class="headerlink" title="gnome 设置"></a>gnome 设置</h3><ul>
-<li><p>Touchpad 左键使用不习惯.</p>
+<h3 id="gnome-设置"><a href="#gnome-设置" class="headerlink" title="gnome 设置"></a>gnome 设置</h3><p>重启后 gnome 启动, 登录用户账户.</p>
 <ul>
+<li>Touchpad 左键使用不习惯.<ul>
 <li>setting –&gt; devices –&gt; Mouse and Touchpad –&gt; tab to click; –&gt; Increase Tachpad Speed</li>
 <li>tweaks –&gt; Keyboard and Mouse –&gt; Mouse click emulation (Area).</li>
 </ul>
@@ -533,24 +531,21 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S fcitx-im fcitx-configtool fcitx-sogoupinyin</span><br><span class="line">$ sudo vim /etc/environment // 写入</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
 <p>然后还需要修改 fcitx-configtool 中的设置: Default Keyboard Layout –&gt; 选择 Chinese, 添加 –&gt; Add input method（+号）选择 Sougou Pinyin.(勾选 Only Show Current Language)</p>
 </li>
-<li><p>aurman</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/polygamma/aurman.git</span><br><span class="line">$ cd ~/Download/aurman </span><br><span class="line">$ makepkg -si</span><br></pre></td></tr></table></figure>
+<li><p>pikaur</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/actionless/pikaur.git</span><br><span class="line">$ cd ~/Download/pikaur </span><br><span class="line">$ makepkg -si</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Chrome</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pacman -S wqy-microhei wqy-zenhei // 字体</span><br><span class="line">$ aurman -S google-chrome</span><br><span class="line">$ sudo pacman -R epiphany</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S archlinux-keyring</span><br><span class="line">$ pikaur -S wqy-microhei wqy-zenhei google-chrome// 字体</span><br><span class="line">$ pikaur -R epiphany</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><a href="https://github.com/showzeng/shadowsocksr" target="_blank" rel="noopener">shadowsocksR</a><br>Setting –&gt; Network –&gt; NetWork Proxy –&gt; Manual –&gt; Socks Host: 127.0.0.1 1080<br>浏览器上安装 SwitchyOmega 插件.</p>
 </li>
-<li><p>桌面美化</p>
-<p>下载 Extensions(dash-to-dock, hidetipbar, pixel-saver), 解压缩后, 放到: <code>~/.local/share/gnome-shell/extensions/</code> 下.<br>下载 Icon Theme: MacOS iCons, 解压缩后, 放到: <code>home/.icons/</code> 下.<br>下载 GTK3 Theme: MacOs Majave, 解压缩后, 放到: <code>home/.themes/</code>下.<br>下载 Gnome Shell Theme: masOS11-shell 放到 <code>home/.themes/</code>下.<br><code>Alt-F2 + r</code>后, 代开 Gnoem-Tweaks 进行设置.</p>
-</li>
+<li>桌面美化<br>下载 Extensions(dash-to-dock, hidetipbar, pixel-saver), 解压缩后, 放到: <code>~/.local/share/gnome-shell/extensions/</code> 下.<br>下载 Icon Theme: MacOS iCons, 解压缩后, 放到: <code>home/.icons/</code> 下.<br>下载 GTK3 Theme: MacOs Majave, 解压缩后, 放到: <code>home/.themes/</code>下.<br>下载 Gnome Shell Theme: masOS11-shell 放到 <code>home/.themes/</code>下.<br><code>Alt-F2 + r</code>后, 代开 Gnoem-Tweaks 进行设置.</li>
 <li><p>解决休眠问题</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/systemd/logind.conf</span><br><span class="line">HandleLidSwitch=ignore</span><br><span class="line">$ systemctl restart systemd-logind</span><br></pre></td></tr></table></figure>
 <p>setting –&gt; power,  关闭 atutosuspend, dim screen.</p>
 </li>
 </ul>
-<h3 id="pacman-指南"><a href="#pacman-指南" class="headerlink" title="pacman 指南"></a>pacman 指南</h3>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pacman -S archlinux-keyring</span><br></pre></td></tr></table></figure>
-<table>
+<h3 id="pacman-指南"><a href="#pacman-指南" class="headerlink" title="pacman 指南"></a>pacman 指南</h3><table>
 <thead>
 <tr>
 <th>Command</th>
@@ -800,7 +795,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
